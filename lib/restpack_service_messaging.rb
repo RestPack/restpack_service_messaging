@@ -1,12 +1,13 @@
 require 'require_all'
+require 'rubykiq'
 require 'restpack_service'
-require "restpack_service_messaging/version"
-# require "restpack_service_messaging/configuration"
-require_all 'lib/restpack_service_messaging/commands'
+require 'restpack_service_messaging/version'
+
+require 'restpack_service_messaging/commands/email/send'
+
+#TODO: GJ: load Rubykiq configuration
+#Rubykiq.url = "redis://127.0.0.1:6379"
 
 module Commands
   include RestPack::Service::Messaging::Commands
 end
-
-# require 'restpack_service'
-# RestPack::Service::Loader.load 'service_mesaging'

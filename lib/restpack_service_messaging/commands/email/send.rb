@@ -17,10 +17,10 @@ module RestPack::Service::Messaging::Commands
       end
 
       def execute
-        job_id = Sidekiq::Client.push(
-          'queue' => 'email',
-          'class' => 'Jobs::Email::Send',
-          'args' => [inputs]
+        job_id = Rubykiq.push(
+          class: 'Jobs::Email::Send',
+          queue: 'email',
+          args: [inputs]
         )
 
         {
