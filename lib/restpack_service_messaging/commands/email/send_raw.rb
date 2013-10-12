@@ -1,6 +1,6 @@
 module RestPack::Service::Messaging::Commands
   module Email
-    class Send < RestPack::Service::Command
+    class SendRaw < RestPack::Service::Command
       required do
         integer :application_id
         string :from #TODO: GJ: add email validation
@@ -18,7 +18,7 @@ module RestPack::Service::Messaging::Commands
 
       def execute
         job_id = Rubykiq.push(
-          class: 'Jobs::Email::Send',
+          class: 'Jobs::Email::SendRaw',
           queue: 'email',
           args: [inputs]
         )
