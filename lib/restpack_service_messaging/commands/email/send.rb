@@ -1,15 +1,15 @@
-module RestPack::Service::Messaging::Commands
+module Messaging
   module Email
     class Send < RestPack::Service::Command
       required do
         integer :application_id
-        string :from #TODO: GJ: add email validation
         string :to
-        string :subject
         string :template
       end
 
       optional do
+        string :from #TODO: GJ: add email validation
+        string :subject
         string :cc
         string :bcc
         string :reply_to

@@ -1,4 +1,4 @@
-module RestPack::Service::Messaging::Commands
+module Messaging
   module Email
     class SendRaw < RestPack::Service::Command
       required do
