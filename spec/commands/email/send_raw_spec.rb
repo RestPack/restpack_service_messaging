@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Commands::Email::SendRaw do
+describe Messaging::Email::SendRaw do
   is_required :application_id, :from, :to, :subject, :text_body
   is_optional :cc, :bcc, :reply_to, :html_body
 
